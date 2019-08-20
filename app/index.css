@@ -1,0 +1,92 @@
+/* @import 'css-from-npm'; */
+@import 'tab.styles.css';
+
+:root {
+  --darkest-grey:   hsl(0,0%,2%);
+  --darker-grey:    hsl(0,0%,5%);
+  --dark-grey:      hsl(0,0%,20%);
+  --grey:           hsl(0,0%,50%);
+  --light-grey:     hsl(0,0%,60%);
+  --lighter-grey:   hsl(0,0%,80%);
+  --lightest-grey:  hsl(0,0%,92%);
+
+  /* https://easings.net */
+  --easing: ease-out-expo;
+}
+
+body {
+  margin: 0;
+  background: white;
+  color: var(--darker-grey);
+  font-family: system-ui;
+  min-height: 100vh;
+}
+
+/* #contents {
+  margin: 20px;
+  width: calc(100vw - 40px);
+  height: calc(50% - 40px);
+  top: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+#contents > ul {
+  white-space: nowrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#contents > ul > li {
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 100%;
+  background: lightseagreen;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid grey;
+  font-size: 10em;
+
+  will-change: transform;
+}
+
+#tabs {
+  border-sizing: border-box;
+  width: 100%;
+  height: 50%;
+  top: 50%;
+  position: absolute;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+#tabs > ul {
+  white-space: nowrap;
+  position: relative;
+
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  
+  font-size: 5em;
+}
+
+#tabs > ul > li {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: blue;
+  position: relative;
+  display: inline-block;
+  will-change: transform, opacity;
+  border: 1px solid grey;
+  margin: 0 10px;
+
+  scroll-snap-align: start;
+
+  border-top-right-radius:30px;
+  border-top-left-radius:30px;
+} */

@@ -1,0 +1,43 @@
+.material-tabs {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  position: relative;
+
+  & > header {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    place-content: stretch;
+
+    & > button {
+      appearance: none;
+      border: none;
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: hsl(0,0%,30%);
+    }
+  }
+
+  & > .tab-indicator {
+    height: 2px;
+    background: hotpink;
+    width: 50%;
+  }
+
+  & > section {
+    width: 100vw;
+    min-height: 300px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100vw;
+
+    & > article {
+      scroll-snap-align: start;
+
+      padding: 1rem;
+    }
+  }
+}
