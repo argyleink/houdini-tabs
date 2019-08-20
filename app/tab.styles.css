@@ -29,9 +29,10 @@
   }
 
   & > section {
+    background: hsl(0,0%,92%);
     width: 100vw;
-    min-height: 300px;
     overflow-x: auto;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
 
     display: grid;
@@ -44,6 +45,7 @@
 
     & > article {
       scroll-snap-align: start;
+      scroll-snap-stop: always;
 
       padding: 1rem;
     }
