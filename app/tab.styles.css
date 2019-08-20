@@ -1,6 +1,9 @@
 .material-tabs {
+  --sections: 2;
+  --header-height: 50px;
+
   display: grid;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: var(--header-height) 1fr;
   position: relative;
 
   & > header {
@@ -19,9 +22,10 @@
   }
 
   & > .tab-indicator {
-    height: 2px;
+    height: .25rem;
     background: hotpink;
-    width: 50%;
+    width: calc(100% / var(--sections));
+    border-radius: .25rem;
   }
 
   & > section {
@@ -33,6 +37,10 @@
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100vw;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     & > article {
       scroll-snap-align: start;

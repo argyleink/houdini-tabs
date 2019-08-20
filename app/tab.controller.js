@@ -2,43 +2,37 @@ const loadWorklet = async () => {
   await CSS.animationWorklet.addModule('tab.animator.js')
 
   const tabs       = document.querySelector('.material-tabs')
-
   const indicator  = tabs.querySelector('.tab-indicator')
-  const header     = tabs.querySelector('header')
-  const contents   = tabs.querySelector('section')
-
-  contents.scrollTo(0,0) // force snap on load
+  const section    = tabs.querySelector('section')
+  const articles   = section.querySelectorAll('article')
+  
+  const curTabOptions = {
+    count: articles.length - 1,
+    width: section.clientWidth,
+  }
 
   const scrollTimeline = new ScrollTimeline({ 
-    scrollSource: contents, 
+    scrollSource: section, 
     orientation: 'inline', 
-    timeRange:    contents.scrollWidth - contents.clientWidth,
+    timeRange:    section.scrollWidth - section.clientWidth,
   })
-
-  const tabItems = contents.querySelectorAll('article')
-  const navItems = header.querySelectorAll('button')
 
   const effect = new KeyframeEffect(indicator,
     [
       {transform: 'translateX(0)'}, 
-      {transform: 'translateX(100%)'},
+      {transform: `translateX(${curTabOptions.count}00%)`},
     ],
     { 
-      duration: 100, 
+      duration:   100, 
       iterations: Infinity, 
-      fill: "both",
+      fill:       'both',
     },
   )
     
-  // Pass offset left as an option but once we support start and end
-  // scroll offset in ScrollTimeline we can get rid of this.
   const animation = new WorkletAnimation('current-tab',
     effect,
     scrollTimeline,
-    {
-      offset: 0, 
-      width:  navItems[0].clientWidth,
-    }
+    curTabOptions,
   )
   
   animation.play()
