@@ -25,13 +25,8 @@
         background: hsl(200 20% 92%);
       }
 
-      &:active {
-        background: hsl(200 20% 90%);
-      }
-
-      &:focus {
+      &:focus:not(:focus-visible) {
         outline: none;
-        background: hsl(200 20% 92%);
       }
     }
   }
