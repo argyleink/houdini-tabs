@@ -8,6 +8,7 @@
 
   & > header {
     display: grid;
+    gap: .25rem;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
     place-content: stretch;
@@ -15,9 +16,23 @@
     & > button {
       appearance: none;
       border: none;
+      border-radius: .25rem .25rem 0 0;
       text-transform: uppercase;
       font-size: 1rem;
-      color: hsl(0,0%,30%);
+      color: hsl(200 80% 20%);
+
+      &:hover {
+        background: hsl(200 20% 92%);
+      }
+
+      &:active {
+        background: hsl(200 20% 90%);
+      }
+
+      &:focus {
+        outline: none;
+        background: hsl(200 20% 92%);
+      }
     }
   }
 
@@ -29,15 +44,14 @@
   }
 
   & > section {
-    background: hsl(0,0%,92%);
-    width: 100vw;
+    width: 100%;
     overflow-x: auto;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
 
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 100vw;
+    grid-auto-columns: 100%;
 
     &::-webkit-scrollbar {
       display: none;

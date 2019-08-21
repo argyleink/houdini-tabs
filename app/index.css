@@ -6,6 +6,8 @@ body {
   color: hsl(0,0%,5%);
   min-height: 100vh;
   font-family: system-ui;
+  display: grid;
+  place-items: center;
 }
 
 h2 {
@@ -18,4 +20,24 @@ p {
   font-size: 1.1rem;
   font-weight: 300;
   line-height: 2;
+}
+
+main {
+  max-width: 480px;
+  max-height: 720px;
+}
+
+.gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+
+  & > figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: hsl(200 20% 92%);
+    border-radius: .5rem;
+  }
 }
