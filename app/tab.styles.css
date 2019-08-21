@@ -16,13 +16,14 @@
     & > button {
       appearance: none;
       border: none;
-      border-radius: .25rem .25rem 0 0;
+      border-radius: .25rem;
       text-transform: uppercase;
       font-size: 1rem;
       color: hsl(200 80% 20%);
 
       &:hover {
-        background: hsl(200 20% 92%);
+        cursor: pointer;
+        /* background: hsl(200 20% 92%); */
       }
 
       &:focus:not(:focus-visible) {
