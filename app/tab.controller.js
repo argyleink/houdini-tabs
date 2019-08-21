@@ -38,6 +38,24 @@ const loadWorklet = async () => {
   animation.play()
 }
 
+const listen = () =>
+  document.querySelectorAll('.material-tabs > header > button')
+    .forEach(node =>
+      node.addEventListener('click', tab_clicked))
+
+const tab_clicked = e => {
+  const index = [...e.target.parentElement.children].indexOf(e.target)
+  const tab_article = document.querySelector(`.material-tabs > section > article:nth-child(${index + 1})`)
+
+  document.querySelector(`.material-tabs > section`)
+    .scrollTo({
+      top:      0,
+      left:     tab_article.offsetLeft,
+      behavior: 'smooth',
+    })
+}
+
+listen()
 
 if (!CSS.animationWorklet) {
   console.warn('Missing CSS.animationWorklet. To enable scroll effect please load in HTTPS and enable flag chrome://flags/#enable-experimental-web-platform-features')
