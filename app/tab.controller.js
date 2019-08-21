@@ -43,8 +43,8 @@ const listen = () =>
     .forEach(node =>
       node.addEventListener('click', tab_clicked))
 
-const tab_clicked = e => {
-  const index = [...e.target.parentElement.children].indexOf(e.target)
+const tab_clicked = ({currentTarget}) => {
+  const index = [...currentTarget.parentElement.children].indexOf(currentTarget)
   const tab_article = document.querySelector(`.material-tabs > section > article:nth-child(${index + 1})`)
 
   document.querySelector(`.material-tabs > section`)
@@ -62,6 +62,6 @@ if (!CSS.animationWorklet) {
   document.body.innerHTML = 'Missing <code>CSS.animationWorklet</code>. <br/> To enable demo please enable Chrome flag chrome://flags/#enable-experimental-web-platform-features and load on HTTPS'
 }
 else {
-  console.log('Loading animation worklet')
+  console.log('🧙‍♂️')
   loadWorklet()
 }
