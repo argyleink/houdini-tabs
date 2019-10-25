@@ -1,10 +1,17 @@
 .material-tabs {
-  --sections: 2;
   --header-height: 50px;
+  --accent: hsl(330 100% 71%);
 
   display: grid;
-  grid-template-rows: var(--header-height) 1fr;
+  grid-template-rows: var(--header-height) 4px 1fr;
   position: relative;
+  background: white;
+  box-shadow: 0 1rem 10rem -3rem hsla(0 0% 0% / 30%);
+
+  overflow: hidden;
+  border-radius: 1rem;
+  padding: .25rem;
+  max-height: 80vh;
 
   & > header {
     display: grid;
@@ -14,28 +21,41 @@
     place-content: stretch;
 
     & > button {
+      --background: white;
+      --background-highlight: hsl(330 100% 98%);
+      --text: hsl(330 80% 10%);
+
       appearance: none;
       border: none;
       border-radius: .25rem;
       text-transform: uppercase;
       font-size: 1rem;
-      background: white;
-      color: hsl(200 80% 20%);
+      background: var(--background);
+      color: var(--text);
+      outline-color: var(--accent);
 
       &:hover {
         cursor: pointer;
-        /* background: hsl(200 20% 92%); */
+        background: var(--background-highlight);
       }
 
       &:focus:not(:focus-visible) {
-        outline: none;
+        cursor: pointer;
+        background: var(--background-highlight);
+      }
+
+      &:first-of-type {
+        border-radius: 1rem .25rem .25rem;
+      }
+
+      &:last-of-type {
+        border-radius: .25rem 1rem .25rem .25rem;
       }
     }
   }
 
   & > .tab-indicator {
-    height: .25rem;
-    background: hotpink;
+    background: var(--accent);
     width: calc(100% / var(--sections));
     border-radius: .25rem;
   }
@@ -59,6 +79,7 @@
       scroll-snap-stop: always;
 
       padding: 1rem;
+      overflow-y: auto;
     }
   }
 }

@@ -38,10 +38,22 @@ const loadWorklet = async () => {
   animation.play()
 }
 
-const listen = () =>
-  document.querySelectorAll('.material-tabs > header > button')
-    .forEach(node =>
-      node.addEventListener('click', tab_clicked))
+const listen = () => {
+  const tabs       = document.querySelector('.material-tabs')
+  const tab_btns   = document.querySelectorAll('.material-tabs > header > button')
+  const snap       = document.querySelector('.material-tabs > section')
+  const snap_width = snap.clientWidth
+
+  tabs.style.setProperty('--sections', tab_btns.length)
+
+  tab_btns.forEach(node =>
+    node.addEventListener('click', tab_clicked))
+
+  snap.addEventListener('scrollend', e => {
+    const selection_index = Math.round(e.currentTarget.scrollLeft / snap_width)
+    tab_btns[selection_index].focus()
+  })
+}
 
 const tab_clicked = ({currentTarget}) => {
   const index = [...currentTarget.parentElement.children].indexOf(currentTarget)

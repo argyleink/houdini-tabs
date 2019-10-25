@@ -2,8 +2,8 @@
 
 body {
   margin: 0;
-  background: white;
-  color: hsl(0,0%,5%);
+  background: hsl(0 0% 90%);
+  color: hsl(0 0% 5%);
   min-height: 100vh;
   font-family: system-ui;
   display: grid;
@@ -30,7 +30,7 @@ main {
   }
 }
 
-.gallery {
+.grid, .list {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -43,4 +43,9 @@ main {
     background: hsl(200 20% 92%);
     border-radius: .5rem;
   }
+}
+
+.list {
+  grid-template-columns: 1fr;
+  grid-auto-rows: 5rem;
 }
